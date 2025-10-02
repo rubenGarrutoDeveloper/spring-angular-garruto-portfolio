@@ -11,17 +11,48 @@
       <p>Specialized in building enterprise web applications for complex business processes.</p>
     </section>
 
+    <!-- Test Backend Button Section -->
+    <section class="test-section">
+      <h3>🔗 Backend Connection Test</h3>
+      <button
+        class="test-button"
+        (click)="testBackendCall()"
+        [disabled]="loading()">
+        {{ loading() ? 'Loading...' : 'Test Call BE' }}
+      </button>
+
+      @if (error()) {
+        <div class="error-message">
+          ❌ {{ error() }}
+        </div>
+      }
+
+      @if (helloData().length > 0) {
+        <div class="success-message">
+          ✅ Backend connection successful!
+          <div class="data-display">
+            <h4>Response Data:</h4>
+            @for (item of helloData(); track item.id) {
+              <div class="data-item">
+                <strong>ID:</strong> {{ item.id }} | <strong>Value:</strong> {{ item.value }}
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </section>
+
     <section class="info">
       <div class="info-card">
         <h3>📍 Location</h3>
         <p>Rome, Italy</p>
       </div>
-      
+
       <div class="info-card">
         <h3>💼 Current Role</h3>
         <p>Full Stack Developer @ Reply</p>
       </div>
-      
+
       <div class="info-card">
         <h3>🎓 Education</h3>
         <p>Master's in Electrical Engineering<br>Politecnico di Milano</p>
