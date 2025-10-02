@@ -1,7 +1,7 @@
 services:
   # Frontend Service (Angular Static Site)
   - type: web
-    name: portfolio-frontend
+    name: garruto-portfolio
     runtime: static
     buildCommand: cd fe-angular-garruto-portfolio && npm install && npm run build
     staticPublishPath: fe-angular-garruto-portfolio/dist/fe-angular-garruto-portfolio/browser
