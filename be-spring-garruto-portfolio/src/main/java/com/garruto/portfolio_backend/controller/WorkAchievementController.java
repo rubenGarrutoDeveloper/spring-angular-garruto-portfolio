@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/work-achievement")
+@RequestMapping("/api/v1/work-achievement")
 public class WorkAchievementController {
 
     private static final Logger logger = LoggerFactory.getLogger(WorkAchievementController.class);

@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/tech-nology")
+@RequestMapping("/api/v1/technology")
 public class TechnologyController {
 
     private static final Logger logger = LoggerFactory.getLogger(TechnologyController.class);

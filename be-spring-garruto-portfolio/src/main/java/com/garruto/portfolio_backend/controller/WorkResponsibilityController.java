@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/work-responsibility")
+@RequestMapping("/api/v1/work-responsibility")
 public class WorkResponsibilityController {
 
     private static final Logger logger = LoggerFactory.getLogger(WorkResponsibilityController.class);

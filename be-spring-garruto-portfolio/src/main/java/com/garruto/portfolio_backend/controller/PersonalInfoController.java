@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/personal-info")
+@RequestMapping("/api/v1/personal-info")
 public class PersonalInfoController {
 
     private static final Logger logger = LoggerFactory.getLogger(PersonalInfoController.class);

@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/skillcategory")
+@RequestMapping("/api/v1/skillcategory")
 public class SkillCategoryController {
 
     private static final Logger logger = LoggerFactory.getLogger(SkillCategoryController.class);
