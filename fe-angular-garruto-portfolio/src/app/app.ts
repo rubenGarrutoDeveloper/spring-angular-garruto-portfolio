@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HelloService,Hello } from './services/hello';
+import { HelloService,Hello } from './core/services/hello';
 
 @Component({
   selector: 'app-root',
