@@ -1,0 +1,352 @@
+{
+  "info": {
+    "name": "Portfolio Backend API",
+    "description": "Complete API collection for testing Ruben Garruto's Portfolio Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://spring-angular-garruto-portfolio.onrender.com",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Hello Test",
+      "item": [
+        {
+          "name": "Get All Hello",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/hello",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "hello"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Personal Info",
+      "item": [
+        {
+          "name": "Get All Personal Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/personal-info",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "personal-info"]
+            }
+          }
+        },
+        {
+          "name": "Get Personal Info by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/personal-info/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "personal-info", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Education",
+      "item": [
+        {
+          "name": "Get All Education",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/education",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "education"]
+            }
+          }
+        },
+        {
+          "name": "Get Education by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/education/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "education", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Company",
+      "item": [
+        {
+          "name": "Get All Companies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/company",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "company"]
+            }
+          }
+        },
+        {
+          "name": "Get Company by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/company/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "company", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Work Experience",
+      "item": [
+        {
+          "name": "Get All Work Experiences",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/work-experience",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "work-experience"]
+            }
+          }
+        },
+        {
+          "name": "Get Work Experience by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/work-experience/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "work-experience", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Work Responsibility",
+      "item": [
+        {
+          "name": "Get All Work Responsibilities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/work-responsibility",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "work-responsibility"]
+            }
+          }
+        },
+        {
+          "name": "Get Work Responsibility by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/work-responsibility/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "work-responsibility", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Work Achievement",
+      "item": [
+        {
+          "name": "Get All Work Achievements",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/work-achievement",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "work-achievement"]
+            }
+          }
+        },
+        {
+          "name": "Get Work Achievement by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/work-achievement/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "work-achievement", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Skill Category",
+      "item": [
+        {
+          "name": "Get All Skill Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/skillcategory",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "skillcategory"]
+            }
+          }
+        },
+        {
+          "name": "Get Skill Category by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/skillcategory/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "skillcategory", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Technology",
+      "item": [
+        {
+          "name": "Get All Technologies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/technology",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "technology"]
+            }
+          }
+        },
+        {
+          "name": "Get Technology by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/technology/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "technology", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Work Technology",
+      "item": [
+        {
+          "name": "Get All Work Technologies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/work-technology",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "work-technology"]
+            }
+          }
+        },
+        {
+          "name": "Get Work Technology by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/work-technology/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "work-technology", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Personal Tech Proficiency",
+      "item": [
+        {
+          "name": "Get All Personal Tech Proficiencies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/personal-tech-proficiency",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "personal-tech-proficiency"]
+            }
+          }
+        },
+        {
+          "name": "Get Personal Tech Proficiency by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/personal-tech-proficiency/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "personal-tech-proficiency", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Personal Language",
+      "item": [
+        {
+          "name": "Get All Personal Languages",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/personal-language",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "personal-language"]
+            }
+          }
+        },
+        {
+          "name": "Get Personal Language by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/personal-language/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "personal-language", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
