@@ -29,38 +29,43 @@ SELECT
 
 -- List all indexes with their sizes
 SELECT
-    schemaname,
-    tablename,
-    indexname,
-    pg_size_pretty(pg_relation_size(indexrelid)) AS index_size
-FROM pg_indexes
-JOIN pg_class ON pg_class.relname = indexname
-WHERE schemaname = 'public'
-ORDER BY pg_relation_size(indexrelid) DESC;
+    n.nspname AS schemaname,
+    t.relname AS tablename,
+    i.relname AS indexname,
+    pg_size_pretty(pg_relation_size(i.oid)) AS index_size
+FROM pg_class t
+JOIN pg_index ix ON t.oid = ix.indrelid
+JOIN pg_class i ON i.oid = ix.indexrelid
+JOIN pg_namespace n ON n.oid = t.relnamespace
+WHERE n.nspname = 'public'
 
 -- Index usage statistics
 SELECT
-    schemaname,
-    tablename,
-    indexname,
-    idx_scan AS number_of_scans,
-    idx_tup_read AS tuples_read,
-    idx_tup_fetch AS tuples_fetched
-FROM pg_stat_user_indexes
-WHERE schemaname = 'public'
-ORDER BY idx_scan DESC;
+    s.schemaname,
+    t.relname AS tablename,
+    s.indexrelname AS indexname,
+    s.idx_scan AS number_of_scans,
+    s.idx_tup_read AS tuples_read,
+    s.idx_tup_fetch AS tuples_fetched
+FROM pg_stat_user_indexes s
+JOIN pg_class t ON t.oid = s.relid
+WHERE s.schemaname = 'public'
+ORDER BY s.idx_scan DESC;
+
 
 -- Unused indexes (never scanned)
 SELECT
-    schemaname,
-    tablename,
-    indexname,
-    pg_size_pretty(pg_relation_size(indexrelid)) AS index_size
-FROM pg_stat_user_indexes
-WHERE schemaname = 'public'
-  AND idx_scan = 0
-  AND indexname NOT LIKE '%_pkey'
-ORDER BY pg_relation_size(indexrelid) DESC;
+    s.schemaname,
+    t.relname AS tablename,
+    s.indexrelname AS indexname,
+    pg_size_pretty(pg_relation_size(s.indexrelid)) AS index_size
+FROM pg_stat_user_indexes s
+JOIN pg_class t ON t.oid = s.relid
+WHERE s.schemaname = 'public'
+  AND s.idx_scan = 0
+  AND s.indexrelname NOT LIKE '%_pkey'
+ORDER BY pg_relation_size(s.indexrelid) DESC;
+
 
 -- =====================================================
 -- ROW COUNT STATISTICS
