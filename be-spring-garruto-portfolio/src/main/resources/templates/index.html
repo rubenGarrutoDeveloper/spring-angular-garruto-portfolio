@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Portfolio di Ruben Garruto - Full Stack Web Developer">
+    <meta name="keywords" content="portfolio, developer, java, spring boot, angular">
+    <meta name="author" content="Ruben Garruto">
+
+    <title>Ruben Garruto | Full Stack Developer</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<!-- Hero Section - Full screen monochrome -->
+<section class="hero-section">
+    <div class="hero-content">
+        <!-- Nome e Cognome -->
+        <h1 class="hero-title">
+            <span th:text="${firstName} ?: 'Ruben'">Ruben</span>
+            <span th:text="${lastName} ?: 'Garruto'">Garruto</span>
+        </h1>
+
+        <!-- Titolo Professionale -->
+        <p class="hero-subtitle">
+                <span class="text-gradient" th:text="${professionalTitle} ?: 'Full Stack Web Developer'">
+                    Full Stack Web Developer
+                </span>
+        </p>
+
+        <!-- CTA Button -->
+        <div class="hero-cta">
+            <a href="/about" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg">
+                Esplora Portfolio
+                <i class="fas fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+
+        <!-- Social Links (optional) -->
+        <div class="mt-5 d-flex justify-content-center gap-3">
+            <a href="https://github.com/rubengarruto"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="text-white-50 fs-4 transition"
+               style="transition: all 0.3s; text-decoration: none;"
+               onmouseover="this.style.color='#fff'"
+               onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ruben-garruto"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="text-white-50 fs-4 transition"
+               style="transition: all 0.3s; text-decoration: none;"
+               onmouseover="this.style.color='#fff'"
+               onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:ruben.garruto@gmail.com"
+               class="text-white-50 fs-4 transition"
+               style="transition: all 0.3s; text-decoration: none;"
+               onmouseover="this.style.color='#fff'"
+               onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Version indicator -->
+    <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4">
+            <span class="badge bg-dark bg-opacity-50 text-white-50 px-3 py-2 rounded-pill border border-secondary border-opacity-25">
+                <i class="fas fa-code-branch me-2"></i>
+                Thymeleaf v1.0.0
+            </span>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script th:src="@{/js/main.js}"></script>
+
+<!-- Bounce animation inline (temporary) -->
+<style>
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0) translateX(-50%);
+        }
+        50% {
+            transform: translateY(-10px) translateX(-50%);
+        }
+    }
+</style>
+</body>
+</html>
