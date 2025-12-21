@@ -60,10 +60,29 @@ public class ViewController {
         return "index";
     }
 
-    // Le altre route saranno aggiunte nelle iterazioni successive:
 
-    // @GetMapping("/about")
-    // public String about(Model model) { ... }
+    /**
+     * About page - Chi sono
+     * Route: GET /about
+     */
+    @GetMapping("/about")
+    public String about(Model model) {
+        log.info("Rendering about page");
+
+        // Recupera tutte le info personali
+        personalInfoService.findAll().stream()
+                .findFirst()
+                .ifPresent(personalInfo -> {
+                    model.addAttribute("personalInfo", personalInfo);
+
+                    // Aggiungi anche le lingue
+                    model.addAttribute("languages", personalInfo.getLanguages());
+                });
+
+        return "about";
+    }
+
+    // Le altre route saranno aggiunte nelle iterazioni successive:
 
     // @GetMapping("/experience")
     // public String experience(Model model) { ... }

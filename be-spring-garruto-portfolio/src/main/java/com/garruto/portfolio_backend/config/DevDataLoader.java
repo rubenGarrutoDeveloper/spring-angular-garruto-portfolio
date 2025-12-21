@@ -14,6 +14,8 @@ import java.time.LocalDate;
 @Profile("dev") // Solo in ambiente dev (H2)
 public class DevDataLoader {
 
+    private static final int startYear = 2019;
+
     @Bean
     CommandLineRunner loadData(
             PersonalInfoRepository personalInfoRepo,
@@ -36,8 +38,14 @@ public class DevDataLoader {
                     .lastName("Garruto")
                     .birthDate(LocalDate.of(1992, 11, 6))
                     .professionalTitle("Full Stack Web Developer")
-                    .bioSummaryIt("Sviluppatore Full Stack con 6+ anni di esperienza in applicazioni web enterprise. Specializzato in Java Spring e Angular.")
-                    .bioSummaryEn("Full Stack Developer with 6+ years of experience in enterprise web applications. Specialized in Java Spring and Angular.")
+                    .bioSummaryIt(
+                            "Sviluppatore Full Stack con " + getYearsOfExperiencePlaceholder() +
+                                    " anni di esperienza in applicazioni web enterprise. " +
+                                    "Specializzato in Java Spring e Angular."
+                    )
+                    .bioSummaryEn(
+                            "Full Stack Developer with" + getYearsOfExperiencePlaceholder() + " " +
+                                    " years of experience in enterprise web applications. Specialized in Java Spring and Angular.")
                     .email("ruben.garruto@gmail.com")
                     .phone("+39 333 48 96 366")
                     .linkedinUrl("https://www.linkedin.com/in/ruben-garruto")
@@ -281,5 +289,11 @@ public class DevDataLoader {
 
             System.out.println("✅ Test data loaded successfully!");
         };
+    }
+
+    private static String getYearsOfExperiencePlaceholder() {
+        int currentYear = java.time.Year.now().getValue();
+        int years = currentYear - startYear;
+        return years + "+";
     }
 }
