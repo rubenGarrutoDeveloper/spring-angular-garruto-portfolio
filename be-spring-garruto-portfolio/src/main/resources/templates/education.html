@@ -5,7 +5,18 @@
     <title>Education - Test</title>
 </head>
 <body>
-<h1>Pagina Education</h1>
-<p>Coming soon...</p>
+<h1>Portfolio - Percorso Formativo</h1>
+
+<div th:each="edu : ${educationList}">
+    <h2 th:text="${edu.degreeType}"></h2>
+    <p th:text="${edu.institutionName}"></p>
+    <p>
+        <span th:text="${#temporals.format(edu.startDate, 'MMM yyyy')}">Gen 2020</span> -
+        <span th:text="${#temporals.format(edu.endDate, 'MMM yyyy')}">Dic 2022</span>
+    </p>
+    <p th:text="${edu.thesisTitleIt}"></p>
+    <p th:text="${edu.thesisDescriptionIt}"></p>
+</div>
+
 </body>
 </html>

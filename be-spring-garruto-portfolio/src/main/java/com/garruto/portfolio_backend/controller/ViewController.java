@@ -107,7 +107,9 @@ public class ViewController {
     public String education(Model model) {
         log.info("Rendering education page");
 
-        // Per ora non passiamo ancora dati
+        // Recupera il percorso formativo
+        model.addAttribute("educationList", educationService.findAllByOrderByStartDateDesc());
+
         return "education";
     }
 
