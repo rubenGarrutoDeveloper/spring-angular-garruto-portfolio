@@ -31,6 +31,7 @@ public class PersonalTechProficiency {
     private String proficiencyLevel;
 
     @Column(name = "years_of_experience", precision = 4, scale = 1)
+    //TODO campo poco pratico, sarebbe meglio mettere startYear e calcolarlo dinamicamente
     private BigDecimal yearsOfExperience;
 
     @Column(name = "notes_it", columnDefinition = "TEXT")

@@ -153,6 +153,10 @@ public class TechnologyDataLoader implements DataLoader {
                 "Tool per test API REST",
                 "Tool for REST API testing");
 
+        Technology bruno = createAndSave(context, "Bruno", "TOOLS_DEVOPS", "Testing",
+                "Tool per test API REST",
+                "Tool for REST API testing");
+
         Technology soapui = createAndSave(context, "SoapUI", "TOOLS_DEVOPS", "Testing",
                 "Tool per test API SOAP",
                 "Tool for SOAP API testing");

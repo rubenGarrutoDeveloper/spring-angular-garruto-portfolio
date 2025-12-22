@@ -8,60 +8,63 @@ import java.math.BigDecimal;
 @Component
 public class PersonalTechProficiencyDataLoader implements DataLoader {
 
+    int order = 1;
     @Override
     public void load(DataLoadContext context) {
         // Programming Languages
-        createProficiency(context, "JAVA", "Avanzato", "6.0", true, 1);
-        createProficiency(context, "TYPESCRIPT", "Intermedio", "4.0", true, 2);
-        createProficiency(context, "SQL", "Intermedio", "6.0", false, 3);
-        createProficiency(context, "PL_SQL", "Intermedio", "4.0", false, 4);
+
+        createProficiency(context, "JAVA", "Avanzato", "6.0", true, order);
+        createProficiency(context, "TYPESCRIPT", "Intermedio", "4.0", true, order);
+        createProficiency(context, "SQL", "Intermedio", "6.0", false, order);
+        createProficiency(context, "PL_SQL", "Intermedio", "4.0", false, order);
 
         // Backend
-        createProficiency(context, "SPRING_BOOT", "Avanzato", "5.0", true, 5);
-        createProficiency(context, "SPRING_MVC", "Avanzato", "5.0", true, 6);
-        createProficiency(context, "SPRING_DATA_JPA", "Avanzato", "5.0", true, 7);
-        createProficiency(context, "SPRING_SECURITY", "Avanzato", "4.0", false, 8);
-        createProficiency(context, "SPRING_BATCH", "Avanzato", "3.0", false, 9);
-        createProficiency(context, "HIBERNATE_JPA", "Avanzato", "5.0", true, 10);
-        createProficiency(context, "RESTFUL_API", "Avanzato", "5.0", true, 11);
-        createProficiency(context, "SOAP_API", "Intermedio", "3.0", false, 12);
-        createProficiency(context, "JAVA_EE", "Intermedio", "4.0", false, 13);
+        createProficiency(context, "SPRING_BOOT", "Avanzato", "5.0", true, order);
+        createProficiency(context, "SPRING_MVC", "Avanzato", "5.0", true, order);
+        createProficiency(context, "SPRING_DATA_JPA", "Avanzato", "5.0", true, order);
+        createProficiency(context, "SPRING_SECURITY", "Intermedio", "4.0", false, order);
+        createProficiency(context, "SPRING_BATCH", "Intermedio", "3.0", false, order);
+        createProficiency(context, "HIBERNATE_JPA", "Avanzato", "5.0", true, order);
+        createProficiency(context, "RESTFUL_API", "Avanzato", "5.0", true, order);
+        createProficiency(context, "SOAP_API", "Intermedio", "3.0", false, order);
+        createProficiency(context, "JAVA_EE", "Intermedio", "4.0", false, order);
 
         // Frontend
-        createProficiency(context, "ANGULAR", "Intermedio", "4.0", true, 14);
-        createProficiency(context, "PRIMEFACES", "Intermedio", "4.0", false, 15);
-        createProficiency(context, "BOOTSTRAP", "Base", "3.0", false, 16);
-        createProficiency(context, "HTML5", "Base", "6.0", false, 17);
-        createProficiency(context, "CSS3", "Base", "6.0", false, 18);
-        createProficiency(context, "JAVASCRIPT", "Base", "6.0", false, 19);
-        createProficiency(context, "JSF", "Intermedio", "4.0", false, 20);
+        createProficiency(context, "ANGULAR", "Intermedio", "4.0", true, order);
+        createProficiency(context, "PRIMEFACES", "Intermedio", "4.0", false, order);
+        createProficiency(context, "BOOTSTRAP", "Base", "3.0", false, order);
+        createProficiency(context, "HTML5", "Base", "6.0", false, order);
+        createProficiency(context, "CSS3", "Base", "6.0", false, order);
+        createProficiency(context, "JAVASCRIPT", "Base", "6.0", false, order);
+        createProficiency(context, "JSF", "Intermedio", "4.0", false, order);
 
         // Databases
-        createProficiency(context, "ORACLE_DATABASE", "Intermedio", "5.0", true, 21);
-        createProficiency(context, "INTERSYSTEMS_CACHÉ_IRIS", "Intermedio", "1.5", false, 22);
-        createProficiency(context, "MYSQL", "Intermedio", "4.0", false, 23);
-        createProficiency(context, "POSTGRESQL", "Intermedio", "3.0", false, 24);
-        createProficiency(context, "MONGODB", "Base", "1.0", false, 25);
+        createProficiency(context, "ORACLE_DATABASE", "Intermedio", "5.0", true, order);
+        createProficiency(context, "INTERSYSTEMS_CACHÉ_IRIS", "Intermedio", "1.5", false, order);
+        createProficiency(context, "MYSQL", "Intermedio", "4.0", false, order);
+        createProficiency(context, "POSTGRESQL", "Intermedio", "3.0", false, order);
+        createProficiency(context, "MONGODB", "Base", "1.0", false, order);
 
         // Tools & DevOps (selected main ones)
-        createProficiency(context, "GIT", "Avanzato", "6.0", true, 26);
-        createProficiency(context, "BITBUCKET", "Avanzato", "5.0", false, 27);
-        createProficiency(context, "MAVEN", "Avanzato", "5.0", false, 28);
-        createProficiency(context, "JASPER_REPORTS", "Intermedio", "3.0", false, 29);
-        createProficiency(context, "INTELLIJ_IDEA", "Avanzato", "6.0", false, 30);
-        createProficiency(context, "ECLIPSE", "Intermedio", "4.0", false, 31);
-        createProficiency(context, "VISUAL_STUDIO_CODE", "Avanzato", "5.0", false, 32);
-        createProficiency(context, "POSTMAN", "Avanzato", "5.0", false, 33);
-        createProficiency(context, "SOAPUI", "Intermedio", "3.0", false, 34);
-        createProficiency(context, "JIRA", "Avanzato", "5.0", false, 35);
-        createProficiency(context, "DOCKER", "Intermedio", "2.0", false, 36);
+        createProficiency(context, "GIT", "Avanzato", "6.0", true, order);
+        createProficiency(context, "BITBUCKET", "Avanzato", "5.0", false, order);
+        createProficiency(context, "MAVEN", "Avanzato", "5.0", false, order);
+        createProficiency(context, "JASPER_REPORTS", "Intermedio", "3.0", false, order);
+        createProficiency(context, "INTELLIJ_IDEA", "Avanzato", "6.0", false, order);
+        createProficiency(context, "ECLIPSE", "Intermedio", "4.0", false, order);
+        createProficiency(context, "VISUAL_STUDIO_CODE", "Avanzato", "5.0", false, order);
+        createProficiency(context, "POSTMAN", "Avanzato", "5.0", false, order);
+        createProficiency(context, "BRUNO", "Avanzato", "5.0", false, order);
+        createProficiency(context, "SOAPUI", "Intermedio", "3.0", false, order);
+        createProficiency(context, "JIRA", "Avanzato", "5.0", false, order);
+        createProficiency(context, "DOCKER", "Intermedio", "2.0", false, order);
 
         // Other Skills
-        createProficiency(context, "HL7", "Intermedio", "1.5", false, 37);
-        createProficiency(context, "ARDUINO", "Base", "2.0", false, 38);
-        createProficiency(context, "AUTOCAD", "Intermedio", "3.0", false, 39);
+        createProficiency(context, "HL7", "Intermedio", "1.5", false, order);
+        createProficiency(context, "ARDUINO", "Base", "2.0", false, order);
+        createProficiency(context, "AUTOCAD", "Intermedio", "3.0", false, order);
 
-        System.out.println("✅ Personal Tech Proficiencies loaded (39 entries)");
+        System.out.println("Personal Tech Proficiencies loaded : " + order);
     }
 
     private void createProficiency(DataLoadContext context, String techKey, String level,
@@ -75,6 +78,8 @@ public class PersonalTechProficiencyDataLoader implements DataLoader {
                 .displayOrder(order)
                 .build();
         context.getProficiencyRepo().save(prof);
+
+        order++;
     }
 
     @Override
