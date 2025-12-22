@@ -5,7 +5,13 @@
     <title>Skills - Test</title>
 </head>
 <body>
-<h1>Pagina Skills</h1>
-<p>Coming soon...</p>
+    <h1>Portfolio - Competenze formative</h1>
+
+    <ul>
+        <li th:each="skill : ${skillList}">
+            <strong th:text="${skill.technology.name}"></strong>
+            <span th:text="| - ${skill.proficiencyLevel} - ${skill.technology.type}|"></span>
+        </li>
+    </ul>
 </body>
 </html>

@@ -121,7 +121,9 @@ public class ViewController {
     public String skills(Model model) {
         log.info("Rendering skills page");
 
-        // Per ora non passiamo ancora dati
+        // Recupera le competenze tecniche
+        model.addAttribute("skillList", proficiencyService.findAll());
+
         return "skills";
     }
 
