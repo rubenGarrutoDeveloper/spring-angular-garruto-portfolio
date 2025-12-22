@@ -94,7 +94,7 @@ public class ViewController {
         log.info("Rendering experience page");
 
         // Recupera tutte le esperienze lavorative
-        model.addAttribute("workExperiences", workExperienceService.findAll());
+        model.addAttribute("experiences", workExperienceService.findAll());
 
         return "experience";
     }
