@@ -81,6 +81,7 @@ public class ViewController {
 
         return "about";
     }
+
     /**
      * Experience page - Esperienze lavorative
      * Route: GET /experience
@@ -93,18 +94,43 @@ public class ViewController {
         return "experience";
     }
 
+    /**
+     * Education page - Percorso Formativo
+     * Route: GET /education
+     */
+    @GetMapping("/education")
+    public String education(Model model) {
+        log.info("Rendering education page");
 
+        // Per ora non passiamo ancora dati
+        return "education";
+    }
 
-    // Le altre route saranno aggiunte nelle iterazioni successive:
+    /**
+     * Skills page - Conoscenze tecniche
+     * Route: GET /skills
+     */
+    @GetMapping("/skills")
+    public String skills(Model model) {
+        log.info("Rendering skills page");
 
+        // Per ora non passiamo ancora dati
+        return "skills";
+    }
 
+    /**
+     * Contact page - contatti
+     * Route: GET /contact
+     */
+    @GetMapping("/contact")
+    public String contact(Model model) {
+        log.info("Rendering contact page");
 
-    // @GetMapping("/education")
-    // public String education(Model model) { ... }
+        // Per ora non passiamo ancora dati
+        return "contact";
+    }
 
-    // @GetMapping("/skills")
-    // public String skills(Model model) { ... }
-
-    // @GetMapping("/contact")
-    // public String contact(Model model) { ... }
+    // TODO: Aggiungere altre pagine
+    // TODO: pagina progetti
+    // TODO: pagina corsi
 }
