@@ -81,11 +81,23 @@ public class ViewController {
 
         return "about";
     }
+    /**
+     * Experience page - Esperienze lavorative
+     * Route: GET /experience
+     */
+    @GetMapping("/experience")
+    public String experience(Model model) {
+        log.info("Rendering experience page");
+
+        // Per ora non passiamo ancora dati
+        return "experience";
+    }
+
+
 
     // Le altre route saranno aggiunte nelle iterazioni successive:
 
-    // @GetMapping("/experience")
-    // public String experience(Model model) { ... }
+
 
     // @GetMapping("/education")
     // public String education(Model model) { ... }
