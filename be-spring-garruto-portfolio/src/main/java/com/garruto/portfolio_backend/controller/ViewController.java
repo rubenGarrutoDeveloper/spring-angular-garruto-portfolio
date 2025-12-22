@@ -1,10 +1,13 @@
 package com.garruto.portfolio_backend.controller;
 
+import com.garruto.portfolio_backend.entity.WorkExperience;
 import com.garruto.portfolio_backend.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 /**
  * Controller per le view Thymeleaf (pagine HTML)
@@ -90,7 +93,9 @@ public class ViewController {
     public String experience(Model model) {
         log.info("Rendering experience page");
 
-        // Per ora non passiamo ancora dati
+        // Recupera tutte le esperienze lavorative
+        model.addAttribute("workExperiences", workExperienceService.findAll());
+
         return "experience";
     }
 
