@@ -1,4 +1,4 @@
-package com.garruto.portfolio_backend.controller;
+package com.garruto.portfolio_backend.controller.mvc;
 
 import com.garruto.portfolio_backend.entity.WorkExperience;
 import com.garruto.portfolio_backend.service.*;

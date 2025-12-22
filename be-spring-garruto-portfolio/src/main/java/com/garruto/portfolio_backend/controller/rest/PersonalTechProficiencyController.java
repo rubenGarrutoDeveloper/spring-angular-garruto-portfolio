@@ -1,4 +1,4 @@
-package com.garruto.portfolio_backend.controller;
+package com.garruto.portfolio_backend.controller.rest;
 
 import com.garruto.portfolio_backend.entity.PersonalTechProficiency;
 import com.garruto.portfolio_backend.service.PersonalTechProficiencyService;
