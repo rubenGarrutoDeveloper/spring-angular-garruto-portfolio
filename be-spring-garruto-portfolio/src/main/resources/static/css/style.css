@@ -450,3 +450,201 @@ button:focus-visible {
         color: black;
     }
 }
+
+/* ===========================================
+   EXPERIENCE PAGE - Custom Styles
+   =========================================== */
+
+/* Experience Card Custom */
+.experience-card {
+    border: none;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+    border-left: 5px solid var(--primary-color);
+}
+
+/* Hover effect */
+.experience-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl) !important;
+    border-left-color: var(--primary-light);
+}
+
+/* Card alternata (colori diversi) */
+.experience-card.alternate {
+    border-left-color: var(--secondary-color);
+}
+
+.experience-card.alternate:hover {
+    border-left-color: var(--accent-color);
+}
+
+/* Company name styling */
+.experience-card .company-name {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.experience-card:hover .company-name {
+    color: var(--primary-color);
+}
+
+/* Job title styling */
+.experience-card .job-title {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+/* Current badge custom */
+.badge-current {
+    background: linear-gradient(135deg, #10b981, #059669);
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+    animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+    0%, 100% {
+        box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.5);
+    }
+}
+
+/* Info sections */
+.experience-card .info-section {
+    padding: 0.75rem 0;
+}
+
+.experience-card .info-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience-card .info-content {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    padding-left: 1.75rem;
+}
+
+/* Responsibilities & Achievements Lists */
+.experience-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.experience-card ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.experience-card ul li::before {
+    content: "▸";
+    position: absolute;
+    left: 0.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.experience-card .achievements-list li::before {
+    content: "★";
+    color: var(--accent-color);
+}
+
+/* Tech badges styling */
+.tech-badge {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    display: inline-block;
+}
+
+.tech-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* Experience separator */
+.experience-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.experience-separator::before,
+.experience-separator::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--primary-color),
+        transparent
+    );
+}
+
+.experience-separator i {
+    margin: 0 1rem;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+/* Timeline connector (opzionale, per dopo) */
+.experience-timeline {
+    position: relative;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(
+        to bottom,
+        var(--primary-color),
+        var(--secondary-color)
+    );
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .experience-card .job-title {
+        font-size: 1.25rem;
+    }
+
+    .experience-card .info-content {
+        padding-left: 0;
+    }
+
+    .experience-card ul li {
+        padding-left: 1.5rem;
+    }
+}

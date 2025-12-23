@@ -57,24 +57,25 @@
                     <!-- Single Experience Block -->
                     <div th:each="exp, iterStat : ${experiences}" class="mb-5">
 
-                        <!-- Experience Card (basic) -->
-                        <div class="card shadow-sm">
+                        <!-- Experience Card (with custom classes) -->
+                        <div class="card shadow-sm experience-card"
+                             th:classappend="${iterStat.even} ? 'alternate' : ''">
                             <div class="card-body p-4">
 
                                 <!-- Header: Job Title + Current Badge -->
                                 <div class="d-flex justify-content-between align-items-start mb-3">
                                     <div>
-                                        <h3 class="mb-1">
+                                        <h3 class="mb-1 job-title">
                                             <span th:text="${exp.jobTitle}">Job Title</span>
                                         </h3>
-                                        <h5 class="text-muted mb-0">
+                                        <h5 class="mb-0 company-name">
                                             <i class="fas fa-building me-2"></i>
                                             <span th:text="${exp.company.name}">Company Name</span>
                                         </h5>
                                     </div>
                                     <div>
                                             <span th:if="${exp.isCurrent}"
-                                                  class="badge bg-success px-3 py-2">
+                                                  class="badge badge-current">
                                                 <i class="fas fa-circle-check me-1"></i>
                                                 Attuale
                                             </span>
@@ -82,13 +83,13 @@
                                 </div>
 
                                 <!-- Info Row: Date + Employment Type -->
-                                <div class="row mb-3">
+                                <div class="row mb-3 info-section">
                                     <div class="col-md-6">
-                                        <p class="mb-1">
-                                            <i class="far fa-calendar text-primary me-2"></i>
-                                            <strong>Periodo:</strong>
+                                        <p class="info-label">
+                                            <i class="far fa-calendar"></i>
+                                            Periodo:
                                         </p>
-                                        <p class="text-muted mb-0 ms-4">
+                                        <p class="info-content mb-0">
                                             <span th:text="${#temporals.format(exp.startDate, 'MMM yyyy')}">Gen 2020</span>
                                             -
                                             <span th:if="${exp.isCurrent}">Presente</span>
@@ -97,11 +98,11 @@
                                         </p>
                                     </div>
                                     <div class="col-md-6">
-                                        <p class="mb-1">
-                                            <i class="fas fa-user-tie text-primary me-2"></i>
-                                            <strong>Tipologia:</strong>
+                                        <p class="info-label">
+                                            <i class="fas fa-user-tie"></i>
+                                            Tipologia:
                                         </p>
-                                        <p class="text-muted mb-0 ms-4" th:text="${exp.employmentType}">
+                                        <p class="info-content mb-0" th:text="${exp.employmentType}">
                                             Full-time
                                         </p>
                                     </div>
@@ -109,24 +110,23 @@
 
                                 <!-- Description -->
                                 <div class="mb-3">
-                                    <p class="mb-1">
-                                        <i class="fas fa-align-left text-primary me-2"></i>
-                                        <strong>Descrizione:</strong>
+                                    <p class="info-label">
+                                        <i class="fas fa-align-left"></i>
+                                        Descrizione:
                                     </p>
-                                    <p class="text-muted mb-0 ms-4" th:text="${exp.descriptionIt}">
+                                    <p class="info-content mb-0" th:text="${exp.descriptionIt}">
                                         Descrizione dell'esperienza lavorativa...
                                     </p>
                                 </div>
 
                                 <!-- Responsibilities (se presenti) -->
                                 <div th:if="${!#lists.isEmpty(exp.responsibilities)}" class="mb-3">
-                                    <p class="mb-2">
-                                        <i class="fas fa-tasks text-primary me-2"></i>
-                                        <strong>Responsabilità:</strong>
+                                    <p class="info-label">
+                                        <i class="fas fa-tasks"></i>
+                                        Responsabilità:
                                     </p>
                                     <ul class="ms-4">
                                         <li th:each="resp : ${exp.responsibilities}"
-                                            class="text-muted mb-2"
                                             th:text="${resp.descriptionIt}">
                                             Responsabilità esempio
                                         </li>
@@ -135,13 +135,12 @@
 
                                 <!-- Achievements (se presenti) -->
                                 <div th:if="${!#lists.isEmpty(exp.achievements)}" class="mb-3">
-                                    <p class="mb-2">
-                                        <i class="fas fa-trophy text-warning me-2"></i>
-                                        <strong>Risultati Raggiunti:</strong>
+                                    <p class="info-label">
+                                        <i class="fas fa-trophy"></i>
+                                        Risultati Raggiunti:
                                     </p>
-                                    <ul class="ms-4">
+                                    <ul class="ms-4 achievements-list">
                                         <li th:each="ach : ${exp.achievements}"
-                                            class="text-muted mb-2"
                                             th:text="${ach.descriptionIt}">
                                             Achievement esempio
                                         </li>
@@ -156,7 +155,7 @@
                                     </p>
                                     <div class="d-flex flex-wrap gap-2">
                                             <span th:each="tech : ${exp.workTechnologies}"
-                                                  class="badge bg-secondary"
+                                                  class="tech-badge"
                                                   th:text="${tech.technology.name}">
                                                 Java
                                             </span>
@@ -167,8 +166,8 @@
                         </div>
 
                         <!-- Separator (except for last item) -->
-                        <div th:unless="${iterStat.last}" class="text-center my-4">
-                            <i class="fas fa-chevron-down text-muted"></i>
+                        <div th:unless="${iterStat.last}" class="experience-separator">
+                            <i class="fas fa-circle"></i>
                         </div>
 
                     </div>
