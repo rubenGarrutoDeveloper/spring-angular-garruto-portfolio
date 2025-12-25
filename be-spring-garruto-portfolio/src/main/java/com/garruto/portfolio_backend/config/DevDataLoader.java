@@ -14,7 +14,7 @@ import java.util.List;
  * Coordinates the execution of all individual data loaders in the correct order.
  */
 @Configuration
-@Profile("dev") // Only runs in dev profile (H2 in-memory database)
+@Profile({"dev", "prod"})
 public class DevDataLoader {
 
     @Bean
