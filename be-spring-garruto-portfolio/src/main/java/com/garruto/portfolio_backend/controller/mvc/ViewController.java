@@ -1,5 +1,6 @@
 package com.garruto.portfolio_backend.controller.mvc;
 
+import com.garruto.portfolio_backend.entity.Education;
 import com.garruto.portfolio_backend.entity.WorkExperience;
 import com.garruto.portfolio_backend.service.*;
 import lombok.extern.slf4j.Slf4j;
@@ -106,10 +107,9 @@ public class ViewController {
     @GetMapping("/education")
     public String education(Model model) {
         log.info("Rendering education page");
-
-        // Recupera il percorso formativo
-        model.addAttribute("educationList", educationService.findAllByOrderByStartDateDesc());
-
+        List<Education> educationList = educationService.findAllByOrderByStartDateDesc();
+        log.info("Found {} education records", educationList.size());
+        model.addAttribute("educationList", educationList);
         return "education";
     }
 
