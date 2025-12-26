@@ -2,16 +2,158 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Skills - Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Competenze Tecniche - Ruben Garruto</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <h1>Portfolio - Competenze formative</h1>
+<!-- Navbar -->
+<div th:replace="~{fragments/navbar :: navbar}"></div>
 
-    <ul>
-        <li th:each="skill : ${skillList}">
-            <strong th:text="${skill.technology.name}"></strong>
-            <span th:text="| - ${skill.proficiencyLevel} - ${skill.technology.type}|"></span>
-        </li>
-    </ul>
+<!-- Main Content -->
+<main>
+    <!-- Hero Header -->
+    <section class="py-5" style="background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center text-white">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="fas fa-code me-3"></i>
+                        Competenze Tecniche
+                    </h1>
+                    <p class="lead">
+                        Le tecnologie con cui lavoro ogni giorno o con cui ho lavorato
+                    </p>
+                    <p class="mb-0">
+                            <span class="badge bg-white text-primary fs-6 px-3 py-2">
+                                <span th:text="${#lists.size(allSkills)}">0</span> Competenze
+                            </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Skills (Stack Principale) -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+
+                    <h2 class="mb-4 text-center">
+                        <i class="fas fa-star text-warning me-2"></i>
+                        Stack Principale
+                    </h2>
+
+                    <!-- Featured Skills Cards -->
+                    <div class="row g-4 mb-5">
+
+                        <div th:each="skill : ${featuredSkills}" class="col-md-4">
+                            <div class="card shadow-sm h-100">
+                                <div class="card-body text-center p-4">
+
+                                    <!-- Technology Icon (placeholder for now) -->
+                                    <div class="mb-3">
+                                        <i class="fas fa-code text-primary" style="font-size: 3rem;"></i>
+                                    </div>
+
+                                    <!-- Technology Name -->
+                                    <h4 class="fw-bold mb-2" th:text="${skill.technology.name}">Java</h4>
+
+                                    <!-- Proficiency Level -->
+                                    <p class="text-muted mb-3">
+                                        <span class="badge bg-primary" th:text="${skill.proficiencyLevel}">Avanzato</span>
+                                    </p>
+
+                                    <!-- Progress Bar -->
+                                    <div class="progress" style="height: 8px;">
+                                        <div class="progress-bar bg-primary"
+                                             role="progressbar"
+                                             th:style="${skill.proficiencyLevel == 'Avanzato'} ? 'width: 100%' :
+                                                           (${skill.proficiencyLevel == 'Intermedio'} ? 'width: 75%' : 'width: 50%')"
+                                             aria-valuenow="100"
+                                             aria-valuemin="0"
+                                             aria-valuemax="100">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills by Category -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+
+                    <h2 class="mb-4 text-center">
+                        <i class="fas fa-layer-group text-primary me-2"></i>
+                        Altre Competenze
+                    </h2>
+
+                    <!-- Loop through categories -->
+                    <div th:each="entry : ${skillsByCategory}" class="mb-4">
+
+                        <!-- Category Header -->
+                        <h4 class="mb-3">
+                            <i class="fas fa-folder text-secondary me-2"></i>
+                            <span th:text="${entry.key}">BACKEND</span>
+                        </h4>
+
+                        <!-- Skills Badges -->
+                        <div class="d-flex flex-wrap gap-2">
+                                <span th:each="skill : ${entry.value}"
+                                      class="badge bg-secondary"
+                                      th:text="${skill.technology.name}">
+                                    Technology
+                                </span>
+                        </div>
+
+                        <hr class="my-4">
+                    </div>
+
+                    <!-- Empty State -->
+                    <div th:if="${#maps.isEmpty(skillsByCategory)}"
+                         class="alert alert-info text-center">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Nessuna altra competenza da mostrare.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<div th:replace="~{fragments/footer :: footer}"></div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom JS -->
+<script th:src="@{/js/main.js}"></script>
 </body>
 </html>

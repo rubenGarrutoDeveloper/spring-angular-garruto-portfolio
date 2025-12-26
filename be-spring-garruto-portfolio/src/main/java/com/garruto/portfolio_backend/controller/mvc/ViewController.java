@@ -1,6 +1,7 @@
 package com.garruto.portfolio_backend.controller.mvc;
 
 import com.garruto.portfolio_backend.entity.Education;
+import com.garruto.portfolio_backend.entity.PersonalTechProficiency;
 import com.garruto.portfolio_backend.entity.WorkExperience;
 import com.garruto.portfolio_backend.service.*;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Controller per le view Thymeleaf (pagine HTML)
@@ -117,12 +120,37 @@ public class ViewController {
      * Skills page - Conoscenze tecniche
      * Route: GET /skills
      */
+    /**
+     * Skills page - Conoscenze tecniche
+     * Route: GET /skills
+     */
     @GetMapping("/skills")
     public String skills(Model model) {
         log.info("Rendering skills page");
 
-        // Recupera le competenze tecniche
-        model.addAttribute("skillList", proficiencyService.findAll());
+        // Recupera tutte le competenze tecniche
+        List<PersonalTechProficiency> allSkills = proficiencyService.findAll();
+
+        // Separa le skill "featured" (stack principale)
+        List<PersonalTechProficiency> featuredSkills = allSkills.stream()
+                .filter(PersonalTechProficiency::getIsFeatured)
+                .toList();
+
+        // Raggruppa le skill NON-featured per categoria
+        Map<String, List<PersonalTechProficiency>> skillsByCategory = allSkills.stream()
+                .filter(skill -> !skill.getIsFeatured())
+                .collect(Collectors.groupingBy(
+                        skill -> skill.getTechnology().getCategory().getNameIt()
+                ));
+
+        // Log per debugging
+        log.info("Found {} featured skills", featuredSkills.size());
+        log.info("Found {} categories with non-featured skills", skillsByCategory.size());
+
+        // Passa i dati al template
+        model.addAttribute("featuredSkills", featuredSkills);
+        model.addAttribute("skillsByCategory", skillsByCategory);
+        model.addAttribute("allSkills", allSkills); // Per debug
 
         return "skills";
     }
@@ -140,6 +168,5 @@ public class ViewController {
     }
 
     // TODO: Aggiungere altre pagine
-    // TODO: pagina progetti
     // TODO: pagina corsi
 }
