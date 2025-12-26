@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 1 - Server Healt Ceck</title>
+</head>
+<body>
+<h1>Dashboard Stato Server</h1>
+
+<div>
+    <p>Questa dashboard mostra i dati in tempo reale della macchina su cui gira l'app.</p>
+    <ul>
+        <li><strong>CPU:</strong> <span th:text="${cpuModel}">Marca CPU</span></li>
+        <li><strong>Utilizzo CPU:</strong> <span th:text="${cpuUsage}">0%</span></li>
+        <li><strong>Uptime Sistema:</strong> <span th:text="${uptime}">0</span></li>
+        <li><strong>RAM in uso:</strong> <span th:text="${ramUsed}">0 GB</span></li>
+        <li><strong>RAM Totale:</strong> <span th:text="${ramTotal}">0 GB</span></li>
+        <li><strong>Capacità SSD:</strong> <span th:text="${diskSize}">0 GB</span></li>
+        <li th:if="${temp > 0}">
+            <strong>Temperatura Sistema:</strong>
+            <span th:style="${temp > 60 ? 'color: red; font-weight: bold;' : 'color: green;'}"
+                  th:text="${#numbers.formatDecimal(temp, 1, 1)} + ' °C'">
+        0.0 °C</span>
+        </li>
+    </ul>
+</div>
+
+<hr>
+<p>Dati aggiornati al caricamento della pagina.</p>
+<a th:href="@{/projects}">← Back to Projects List</a>
+</body>
+</html>
