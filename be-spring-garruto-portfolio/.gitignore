@@ -46,3 +46,6 @@ application-local.properties
 *.mv.db
 *.trace.db
 data/
+
+# PostgreSQL local data
+postgres_data/

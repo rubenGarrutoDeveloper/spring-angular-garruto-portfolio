@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Profile;
 import java.util.List;
 
 /**
- * Main data loader orchestrator for development environment.
+ * Main data loader orchestrator for development and production environments.
+ * Loads data ONLY if the database is empty (first run).
  * Coordinates the execution of all individual data loaders in the correct order.
  */
 @Configuration
@@ -33,6 +34,17 @@ public class DevDataLoader {
             List<DataLoader> dataLoaders // Spring will inject all DataLoader beans
     ) {
         return args -> {
+            // Check if data already exists
+            long personalInfoCount = personalInfoRepo.count();
+
+            if (personalInfoCount > 0) {
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                System.out.println("ℹ️  Database already contains data - skipping data loading");
+                System.out.println("📊 Found " + personalInfoCount + " personal info record(s)");
+                System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+                return;
+            }
+
             System.out.println("🚀 Starting data loading process...");
             System.out.println("📦 Found " + dataLoaders.size() + " data loaders");
             System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
