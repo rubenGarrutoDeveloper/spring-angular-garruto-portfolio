@@ -1,27 +1,13 @@
-# Stage 1: Build
-FROM eclipse-temurin:17-jdk-alpine AS build
+# Fase 1: Runtime
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 
-# Install Maven
-RUN apk add --no-cache maven
+# Copia il file jar generato da Maven nella cartella del container
+# Il nome del file deriva da artifactId e versione nel pom.xml
+COPY target/portfolio-backend-0.0.1-SNAPSHOT.jar app.jar
 
-# Copy pom.xml and download dependencies
-COPY pom.xml .
-RUN mvn dependency:go-offline -B
+# Espone la porta definita nelle tue properties
+EXPOSE 8081
 
-# Copy source code and build
-COPY src ./src
-RUN mvn clean package -DskipTests -B
-
-# Stage 2: Runtime
-FROM eclipse-temurin:17-jre-alpine
-WORKDIR /app
-
-# Copy the built jar from the previous stage
-COPY --from=build /app/target/portfolio-backend-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose port
-EXPOSE $PORT
-
-# Command to run the jar with production profile
-ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-Dserver.port=${PORT}", "-jar", "app.jar"]
+# Avvia l'applicazione con il profilo di produzione
+ENTRYPOINT ["java", "-Dspring.profiles.active=prod", "-jar", "app.jar"]
